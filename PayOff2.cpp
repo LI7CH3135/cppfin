@@ -1,17 +1,31 @@
 //
 //
-//			               	Random1.h
+//                          PayOff2.cpp
 //
-//             
+//
 
 
-#ifndef RANDOM1_H
-#define RANDOM1_H
+#include "PayOff2.h"
+#include "minmax.h"
 
-double GetOneGaussianBySummation();
-double GetOneGaussianByBoxMuller();
+PayOffCall::PayOffCall(double Strike_) : Strike(Strike_)
+{
+}
 
-#endif
+double PayOffCall::operator () (double Spot) const
+{
+    return max(Spot-Strike,0.0);
+}
+
+
+double PayOffPut::operator () (double Spot) const
+{
+    return max(Strike-Spot,0.0);
+}
+
+PayOffPut::PayOffPut(double Strike_) : Strike(Strike_)
+{
+}
 
 /*
  *

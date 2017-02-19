@@ -1,15 +1,21 @@
 //
 //
-//			               	Random1.h
 //
-//             
+//                SimpleMC2.h
+//
+//
 
+#ifndef SIMPLEMC2_H
+#define SIMPLEMC2_H
 
-#ifndef RANDOM1_H
-#define RANDOM1_H
+#include "PayOff2.h"
 
-double GetOneGaussianBySummation();
-double GetOneGaussianByBoxMuller();
+double SimpleMonteCarlo2(const PayOff& thePayOff, 
+                         double Expiry, 
+						 double Spot,
+						 double Vol, 
+						 double r, 
+						 unsigned long NumberOfPaths);
 
 #endif
 

@@ -1,17 +1,27 @@
 //
 //
-//			               	Random1.h
 //
-//             
+//                            DoubleDigital.cpp
+//
+//
 
+#include "DoubleDigital.h"
 
-#ifndef RANDOM1_H
-#define RANDOM1_H
+PayOffDoubleDigital::PayOffDoubleDigital(double LowerLevel_, double UpperLevel_)
+                      :   LowerLevel(LowerLevel_),
+                          UpperLevel(UpperLevel_)
+{
+}
 
-double GetOneGaussianBySummation();
-double GetOneGaussianByBoxMuller();
+double PayOffDoubleDigital::operator()(double Spot) const
+{
+    if (Spot <= LowerLevel)
+        return 0;
+    if (Spot >= UpperLevel)
+        return 0;
 
-#endif
+    return 1;
+}
 
 /*
  *
